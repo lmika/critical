@@ -283,6 +283,7 @@ func (i *Interpreter) Eval(str string) (string, error) {
 	// Hacky way to ensure the child environment has the same
 	// functions as we do.
 	tmp.functions = i.functions
+	tmp.builtins = i.builtins
 
 	// run the script
 	out, err := tmp.Evaluate()
