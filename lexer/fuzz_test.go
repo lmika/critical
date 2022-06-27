@@ -6,7 +6,7 @@ package lexer
 import (
 	"testing"
 
-	"github.com/skx/critical/token"
+	"github.com/lmika/critical/token"
 )
 
 func FuzzLexer(f *testing.F) {

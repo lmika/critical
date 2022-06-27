@@ -32,8 +32,8 @@ package parser
 import (
 	"fmt"
 
-	"github.com/skx/critical/lexer"
-	"github.com/skx/critical/token"
+	"github.com/lmika/critical/lexer"
+	"github.com/lmika/critical/token"
 )
 
 // Command is a single command, or statement, which should be executed.

@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/skx/critical/interpreter"
-	"github.com/skx/critical/stdlib"
+	"github.com/lmika/critical/interpreter"
+	"github.com/lmika/critical/stdlib"
 )
 
 var version = "unreleased"

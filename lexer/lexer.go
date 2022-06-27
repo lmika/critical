@@ -20,7 +20,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/skx/critical/token"
+	"github.com/lmika/critical/token"
 )
 
 // Lexer is used as the lexer for our deployr "language".

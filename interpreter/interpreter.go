@@ -7,9 +7,9 @@ import (
 	"os"
 	"regexp"
 
-	"github.com/skx/critical/environment"
-	"github.com/skx/critical/parser"
-	"github.com/skx/critical/token"
+	"github.com/lmika/critical/environment"
+	"github.com/lmika/critical/parser"
+	"github.com/lmika/critical/token"
 )
 
 // HostFunction represents a built-in function available to the TCL environment

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/skx/critical/token"
+	"github.com/lmika/critical/token"
 )
 
 // TestEmpty tests a couple of different empty strings
