@@ -1,6 +1,7 @@
 package interpreter
 
 import (
+	"errors"
 	"strings"
 	"testing"
 )
@@ -239,6 +240,26 @@ return 313
 		t.Fatalf("unexpected error:%s", err)
 	}
 	if out != "313" {
+		t.Fatalf("unexpected return value: got %s", out)
+	}
+}
+
+func TestRegisterBuiltin(t *testing.T) {
+	e := New(`joinStr "abc" "123"`)
+
+	e.RegisterBuiltin("joinStr", func(i *Interpreter, args []string) (string, error) {
+		if len(args) != 2 {
+			return "", errors.New("expected 2 arguments")
+		}
+
+		return strings.Join(args, ":"), nil
+	})
+
+	out, err := e.Evaluate()
+	if err != nil {
+		t.Fatalf("unexpected error:%s", err)
+	}
+	if out != "abc:123" {
 		t.Fatalf("unexpected return value: got %s", out)
 	}
 }

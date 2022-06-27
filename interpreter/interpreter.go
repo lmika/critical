@@ -329,3 +329,8 @@ func (i *Interpreter) expandEval(str string) string {
 
 	return str
 }
+
+// RegisterBuiltin registers a builtin function.
+func (i *Interpreter) RegisterBuiltin(name string, fn func(i *Interpreter, args []string) (string, error)) {
+	i.builtins[name] = HostFunction{function: fn}
+}
