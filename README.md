@@ -24,13 +24,16 @@ There is a simple introduction to this project, and TCL syntax, on my blog here:
 
 ## Building & Usage
 
-Build in the usual way, for example:
+This repository contains a TCL-like interpreter, along with a sample driver.
+
+You can build both in the way you'd expect for golang applications:
 
 ```sh
 $ go build .
 ```
 
-Execute with the name of a TCL-file to execute:
+Once build you can execute the application, supplying the path to a TCL
+script which you wish to execute.  For example:
 
 ```sh
     $ ./critical input.tcl
@@ -49,6 +52,14 @@ To disable the use of the standard library run:
    $ ./critical -no-stdlib path/to/file.tcl
 ```
 
+It is expected that you might prefer to embed this interpreter within your
+own (host) application(s), so you'll find an example of that beneath the
+[embedded/](embedded/) directory:
+
+* [Embedding the criTiCaL interpreter](embedded/)
+
+Note that the embedded example does not load the standard-library, but of
+course it could be updated to do so.
 
 
 ## Examples
@@ -127,16 +138,15 @@ The complete list of standard [TCL commands](https://www.tcl.tk/man/tcl/TclCmd/c
 
 Read the file [input.tcl](input.tcl) to get a feel for the language, but in-brief you've got the following facilities available:
 
-* Mathematical operations for `expr`
-  * `+` `-` `/` `*` `<` `>` `<=` `>=`
-  * Integer support only.  Sigh.
+* Floating-point mathematical operations for `expr`
+  * `+` `-` `/` `*` `%`.
+* Comparison operations for `expr`
+  * `<` `>` `<=` `>=`, `==`, `!=`, `eq`, `ne`
 * Output to STDOUT via `puts`.
-* Inline command expansion.
-  * Including inside strings.
-* Inline variable expansion.
-  * Including inside strings.
+* Inline command expansion, for example `puts [* 3 4]`
+* Inline variable expansion, for example `puts "$$name is $name"`.
 * The ability to define procedures, via `proc`.
-
+  * See the later examples, or examine code such as [examples/prime.tcl](examples/prime.tcl).
 
 
 ## Missing Features
